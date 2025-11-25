@@ -1,6 +1,26 @@
-# Bsort: Bottle Cap Detection & Color Classification
+Bsort: Bottle Cap Detection & Color Classification
 
-pipeline machine learning lengkap untuk mendeteksi tutup botol dan mengklasifikasikan warnanya (light blue, dark blue, dan other) menggunakan dataset YOLO.
+Status: Work in Progress
+
+This project is an attempt to build a real-time computer vision system for detecting bottle caps and classifying their colors. The project is still under development, and some parts are incomplete.
+
+What’s included so far:
+
+Initial dataset preparation and labeling
+
+Preliminary model setup for object detection
+
+Some experiments with YOLO-based model inference
+
+Note
+
+I am submitting this as part of the application task. While the project is not fully completed, I have tried to demonstrate my understanding of:
+
+Dataset handling and preprocessing
+
+Object detection model setup
+
+Approach to color classification
 
 ---
 

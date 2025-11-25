@@ -1,5 +1,5 @@
 # ===== Base Image =====
-FROM python:3.10-slim
+FROM python:3.10
 
 # ===== Env Setup =====
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -33,3 +33,4 @@ EXPOSE 8000
 
 # ===== CMD =====
 CMD ["python", "main.py"]
+

@@ -101,4 +101,4 @@ Dataset awal berformat YOLO. Relabel dilakukan berdasarkan:
 - Rentang HSV warna **dark blue**
 - Selain itu → label **other**
 
-"To try out the code, open the Jupyter Notebook located in the notebook/ folder. The notebook contains the complete workflow from downloading the dataset, training the model, to testing the results."
+To try out the code, open the Jupyter Notebook located in the notebook/ folder. The notebook contains the complete workflow from downloading the dataset, training the model, to testing the results.

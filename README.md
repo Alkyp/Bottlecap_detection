@@ -1,45 +1,34 @@
-#  Bottle Cap Detection & Color Classification
+# Bottle Cap Detection & Color Classification
 
-Status: Work in Progress
+**Status:** Work in Progress
 
-## This project is an attempt to build a real-time computer vision system for detecting bottle caps and classifying their colors. The project is still under development, and some parts are incomplete.
+## Project Overview
+This project aims to build a real-time computer vision system for detecting bottle caps and classifying their colors. The project is still under development, and some parts are incomplete.
 
-What’s included so far:
-
+### What’s included so far:
 - Initial dataset preparation and labeling
-
-- Preliminary model setup for object detection
-
+- Preliminary object detection model setup
 - Some experiments with YOLO-based model inference
 
-##  Note
-
-- I am submitting this as part of the application task. While the project is not fully completed, I have tried to demonstrate my understanding of:
-
+### Note
+This is submitted as part of an application task. While the project is not fully completed, it demonstrates my understanding of:
 - Dataset handling and preprocessing
-
 - Object detection model setup
-
 - Approach to color classification
 
 ---
 
-## 🚀 Fitur Utama
-- **Deteksi objek (YOLO-based)** untuk tutup botol.
-- **Klasifikasi warna otomatis** (light blue, dark blue, other) berdasarkan analisis HSV.
-- **Augmentasi + relabeling otomatis**.
-- **Notebook eksperimen** untuk eksplorasi & eksperimen model.
+## 🚀 Key Features
+- **Object detection (YOLO-based)** for bottle caps
+- **Automatic color classification** (light blue, dark blue, other) based on HSV analysis
+- **Augmentation + automatic relabeling**
+- **Experimentation notebook** for exploration & model experiments
 
 ---
 
-
----
-
-
-
-## 🧰 Konfigurasi (YAML)
-Contoh `settings.yaml`:
-```
+## 🧰 Configuration (YAML)
+Example `settings.yaml`:
+```yaml
 model:
   name: yolov8n
   epochs: 50
@@ -50,26 +39,27 @@ data:
   val: dataset/relabeled/images/val
   nc: 3
   names: ["light_blue", "dark_blue", "other"]
+
 ```
 
 
 ---
 
-## 📘 Notebook Eksperimen
-Notebook tersedia di:
+## 📘 Experimentation Notebook
+Notebook available at::
 ```
 notebook/model_development_and_experimentation.ipynb
 ```
-Berisi:
-- Visualisasi bounding box
-- Eksperimen model
+It contains:
+- Bounding box visualization
+- Model experiments
 
 ---
 
 ## 📊 Dataset
-Dataset awal berformat YOLO. Relabel dilakukan berdasarkan:
-- Rentang HSV warna **light blue**
-- Rentang HSV warna **dark blue**
-- Selain itu → label **other**
+The initial dataset is in YOLO format. Relabeling was performed based on:
+- HSV range for **light blue**
+- HSV range for **dark blue**
+- Everything else → labeled as **other**
 
 To try out the code, open the Jupyter Notebook located in the notebook/ folder. The notebook contains the complete workflow from downloading the dataset, training the model, to testing the results.

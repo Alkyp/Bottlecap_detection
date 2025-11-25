@@ -1,8 +1,8 @@
-#Bsort: Bottle Cap Detection & Color Classification
+#  Bottle Cap Detection & Color Classification
 
 Status: Work in Progress
 
-##This project is an attempt to build a real-time computer vision system for detecting bottle caps and classifying their colors. The project is still under development, and some parts are incomplete.
+## This project is an attempt to build a real-time computer vision system for detecting bottle caps and classifying their colors. The project is still under development, and some parts are incomplete.
 
 What’s included so far:
 

@@ -1,0 +1,69 @@
+project:
+  name: "bottlecap-detector"
+  seed: 42
+
+dataset:
+  # Sumber dataset mentah (sudah diextract)
+  source_sample: "bottlecap_dataset/sample"
+
+  # Output YOLO format
+  yolo_clean:
+    images: "yolo_dataset/images"
+    labels: "yolo_dataset/labels"
+
+  # Augmented dataset
+  yolo_aug:
+    images: "yolo_dataset_aug/images"
+    labels: "yolo_dataset_aug/labels"
+
+  # Final train/val splits
+  split_root: "yolo_dataset_split"
+  train_ratio: 0.8
+  val_ratio: 0.2
+
+classes:
+  map:
+    light_blue: 0
+    dark_blue: 1
+    others: 2
+
+relabel:
+  hsv_blue_lower: [75, 40, 40]
+  hsv_blue_upper: [150, 255, 255]
+  blue_ratio_threshold: 0.02        # 2% pixel threshold
+  light_blue_v_mean_threshold: 100   # threshold V untuk bedakan light/dark blue
+
+augmentation:
+  count_per_image: 5
+  operations:
+    horizontal_flip: 0.5
+    vertical_flip: 0.2
+    rotate: 30
+    random_brightness_contrast: 0.5
+    shift_scale_rotate:
+      shift_limit: 0.05
+      scale_limit: 0.2
+      rotate_limit: 15
+      p: 0.5
+
+training:
+  model: "yolov8n.pt"
+  epochs: 50
+  img_size: 320
+  batch_size: 16
+  project_name: "bottlecap-detector"
+  run_name: "yolov8n-wandb"
+
+wandb:
+  enabled: true
+  project: "bottlecap-color-detector"
+  entity: null
+
+inference:
+  source_images: "yolo_dataset/images"
+  conf: 0.25
+  img_size: 320
+  show_first_n: 10
+  save_results_to: "inference_results"
+  model_weights: "runs/detect/yolov8n-wandb/weights/best.pt"
+  visualize: true

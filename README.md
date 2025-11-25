@@ -1,0 +1,120 @@
+# Bsort: Bottle Cap Detection & Color Classification
+
+pipeline machine learning lengkap untuk mendeteksi tutup botol dan mengklasifikasikan warnanya (light blue, dark blue, dan other) menggunakan dataset YOLO. Proyek ini menyediakan struktur ML yang siap digunakan untuk training, inferensi, evaluasi, hingga deployment menggunakan Docker & CLI.
+
+---
+
+## 🚀 Fitur Utama
+- **Deteksi objek (YOLO-based)** untuk tutup botol.
+- **Klasifikasi warna otomatis** (light blue, dark blue, other) berdasarkan analisis HSV.
+- **Python CLI (`bsort`)** untuk training & inferensi.
+- **Pipeline ML terstruktur** dengan konfigurasi YAML.
+- **CI/CD GitHub Actions** lengkap: linting, formatting, unit test, docker build.
+- **Augmentasi + relabeling otomatis**.
+- **Notebook eksperimen** untuk eksplorasi & eksperimen model.
+
+---
+
+## 📂 Struktur Proyek
+```
+bsort-project/
+│
+├── README.md
+├── pyproject.toml
+├── requirements.txt
+├── Dockerfile
+├── settings.yaml
+│
+├── dataset/
+│   ├── bottlecap_dataset/                
+│   ├── yolo_dataset/           
+│   └── yolo_dataset_aug/ 
+|   └── yolo_dataset_split/        
+│
+├── tools/
+│   └── relabel_and_augment.py
+│
+├── src/bsort/
+│   ├── cli.py
+│   ├── train.py
+│   ├── infer.py
+│   └── utils.py
+│
+├── tests/
+│   └── test_utils.py
+│
+├── notebooks/
+│   └── 01_experiments.ipynb
+│
+└── .github/workflows/ci.yml
+```
+
+---
+
+
+---
+
+## 🧪 Menjalankan Pipeline
+### 🔧 1. Relabel + Augment Dataset
+```
+python tools/relabel_and_augment.py --input dataset/raw --output dataset/relabeled
+```
+
+### 🤖 2. Training Model
+```
+bsort train --config settings.yaml
+```
+
+### 🔍 3. Inferensi
+```
+bsort infer --source path/to/image_or_folder
+```
+Output otomatis tersimpan di `runs/inference/`.
+
+---
+
+## 🧰 Konfigurasi (YAML)
+Contoh `settings.yaml`:
+```
+model:
+  name: yolov8n
+  epochs: 50
+  img_size: 320
+
+data:
+  train: dataset/relabeled/images/train
+  val: dataset/relabeled/images/val
+  nc: 3
+  names: ["light_blue", "dark_blue", "other"]
+```
+
+---
+
+---
+
+## 🧪 Unit Test
+Test disimpan di folder `tests/`.
+Menjalankan test:
+```
+pytest -q
+```
+
+---
+
+## 📘 Notebook Eksperimen
+Notebook tersedia di:
+```
+notebook/model_development_and_experimentation.ipynb
+```
+Berisi:
+- Visualisasi bounding box
+- Eksperimen model
+
+---
+
+## 📊 Dataset
+Dataset awal berformat YOLO. Relabel dilakukan berdasarkan:
+- Rentang HSV warna **light blue**
+- Rentang HSV warna **dark blue**
+- Selain itu → label **other**
+

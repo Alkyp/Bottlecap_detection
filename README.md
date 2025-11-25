@@ -1,53 +1,14 @@
 # Bsort: Bottle Cap Detection & Color Classification
 
-pipeline machine learning lengkap untuk mendeteksi tutup botol dan mengklasifikasikan warnanya (light blue, dark blue, dan other) menggunakan dataset YOLO. Proyek ini menyediakan struktur ML yang siap digunakan untuk training, inferensi, evaluasi, hingga deployment menggunakan Docker & CLI.
+pipeline machine learning lengkap untuk mendeteksi tutup botol dan mengklasifikasikan warnanya (light blue, dark blue, dan other) menggunakan dataset YOLO.
 
 ---
 
 ## 🚀 Fitur Utama
 - **Deteksi objek (YOLO-based)** untuk tutup botol.
 - **Klasifikasi warna otomatis** (light blue, dark blue, other) berdasarkan analisis HSV.
-- **Python CLI (`bsort`)** untuk training & inferensi.
-- **Pipeline ML terstruktur** dengan konfigurasi YAML.
-- **CI/CD GitHub Actions** lengkap: linting, formatting, unit test, docker build.
 - **Augmentasi + relabeling otomatis**.
 - **Notebook eksperimen** untuk eksplorasi & eksperimen model.
-
----
-
-## 📂 Struktur Proyek
-```
-bsort-project/
-│
-├── README.md
-├── pyproject.toml
-├── requirements.txt
-├── Dockerfile
-├── settings.yaml
-│
-├── dataset/
-│   ├── bottlecap_dataset/                
-│   ├── yolo_dataset/           
-│   └── yolo_dataset_aug/ 
-|   └── yolo_dataset_split/        
-│
-├── tools/
-│   └── relabel_and_augment.py
-│
-├── src/bsort/
-│   ├── cli.py
-│   ├── train.py
-│   ├── infer.py
-│   └── utils.py
-│
-├── tests/
-│   └── test_utils.py
-│
-├── notebooks/
-│   └── 01_experiments.ipynb
-│
-└── .github/workflows/ci.yml
-```
 
 ---
 
@@ -71,16 +32,6 @@ data:
   names: ["light_blue", "dark_blue", "other"]
 ```
 
----
-
----
-
-## 🧪 Unit Test
-Test disimpan di folder `tests/`.
-Menjalankan test:
-```
-pytest -q
-```
 
 ---
 

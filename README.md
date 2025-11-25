@@ -54,24 +54,7 @@ bsort-project/
 
 ---
 
-## 🧪 Menjalankan Pipeline
-### 🔧 1. Relabel + Augment Dataset
-```
-python tools/relabel_and_augment.py --input dataset/raw --output dataset/relabeled
-```
 
-### 🤖 2. Training Model
-```
-bsort train --config settings.yaml
-```
-
-### 🔍 3. Inferensi
-```
-bsort infer --source path/to/image_or_folder
-```
-Output otomatis tersimpan di `runs/inference/`.
-
----
 
 ## 🧰 Konfigurasi (YAML)
 Contoh `settings.yaml`:
@@ -118,3 +101,4 @@ Dataset awal berformat YOLO. Relabel dilakukan berdasarkan:
 - Rentang HSV warna **dark blue**
 - Selain itu → label **other**
 
+"To try out the code, open the Jupyter Notebook located in the notebook/ folder. The notebook contains the complete workflow from downloading the dataset, training the model, to testing the results."
